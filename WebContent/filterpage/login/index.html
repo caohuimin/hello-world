@@ -1,0 +1,90 @@
+<!doctype  html><!--声明当前页面 HTML-->
+<html lang="en">
+	<head>
+		<!--声明当前页面编码集 utf-8 国际编码  GBK gb2312 中文编码-->
+		<meta charset="UTF-8">
+		<!--网页三要素-->
+		<title>JS弹窗登陆--千凡</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="描述">
+		<!--css层叠样式表  衣服 化妆破  装扮修饰-->
+		<style type="text/css">
+		*{margin:0;/*外边距*/padding:0;/*内边距*/}
+		body,html{width:100%;height:100%;}
+		a.but{color:#000;text-decoration:none;/*去掉下划线*/ }
+		.bg{width:100%;height:100%;background:rgba(0,0,0,0.3);position:absolute;/*绝对定位*/top:0;left:0;}
+		.dl{width:600px;height:350px;background:#fff;position:absolute;/*绝对定位*/top:0;left:0;}
+		.dl .title{width:100%;height:45px;background:#ff9933;color:#fff;font-weight:bold;/*文字加粗*/
+			line-height:45px;/*行高*/text-indent:20px;/*首行缩进*/
+		}
+		.dl .title a.colse{width:18px;height:18px;background:url("images/close.png");display:block;/*块元素*/
+			float:right;margin-top:10px;margin-right:20px;
+		
+		}
+		.dl .text{line-height:30px;font-size:14px;padding:0 20px}
+		.dl p{font-size:14px;margin:20px auto;width:310px;}
+		.dl p input{width:260px;height:35px;}
+		.dl p input.submilt{margin-left:40px;background:url("images/but_bg1.jpg");border:none;}
+		</style>
+	</head>
+<body>
+	<!-- <a href="javascript:" class="but">登录</a> -->
+	<div class="bg"></div>
+	<div class="dl">
+		<div class="title">用户登录<a class="colse" href="javascript:"></a> </div>
+		<div class="text" style=" margin-top:20px;" align="center">
+			<img src="images/new.png" width="40" height="40" align="absmiddle" />
+			<font size="+3"><b>员工信息管理系统<b></font>
+		</div>
+		<form>
+			<p>账号：<input class="txt" type="text" /></p>
+			<p>密码：<input class="txt" type="password" /></p>
+			<p><input class="submilt" type="button" onclick="window.open("show.html")" /></p>
+		</form>
+		
+
+	</div>
+	<script src="js/jquery.js"></script>
+	<script>
+	//点击按钮，让遮罩显示display:block; 让登陆框显示display:block;
+	//找到对象
+	$("a.but").click(function(){
+		$(".bg").show();
+		$(".dl").show();
+	})
+	$("a.colse").click(function(){
+		$(".bg").hide();
+		$(".dl").hide();
+	})
+	auto();
+	function auto(){
+		//得到浏览器宽高
+		var _top = $(window).height()/2-$(".dl").height()/2
+		var _left =$(window).width()/2-$(".dl").width()/2
+		$(".dl").css({top:_top,left:_left})
+	}
+	//鼠标按下
+	$(".title").mousedown(function(e){
+		var x = e.clientX//获取鼠标到左边距离
+		var y = e.clientY//获取鼠标到上边距离
+		var f_left = $(".dl").position().left;//left
+		var f_top = $(".dl").position().top;//top
+		var l = x - f_left;
+		var t = y - f_top;
+		$(document).mousemove(function(e){
+			var nx = e.clientX//动态获取鼠标到左边距离
+			var ny = e.clientY//动态获取鼠标到上边距离
+			var n_left = nx -l;
+			var n_top = ny -t;
+			$(".dl").css({left:n_left,top:n_top})
+			$(document).mouseup(function(){
+				$(document).unbind("mousemove");
+				$(document).unbind("mouseup");
+				return false;
+			})
+		})
+	});
+	//对象点击事件
+	</script>
+</body>
+</html>

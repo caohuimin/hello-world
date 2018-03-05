@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+body{ background-color:#FFFFCC}
+#head{ width:100%; height:60px;line-height:60px;}
+#body{ width:1000px; height:600px; background-color:#FFCCCC; margin:10px 170px;}
+#bodyh{ width:1000px; height:100px;}
+#bodyh_1{ width:600px; height:100px; background-color:#FF99CC;padding-left:0px; float:left}
+#bodyh_1_img{ width:100px; height:100px; float:left}
+#bodyh_2{ width:500px; height:100px; float:left;}
+#butt{ width:400px; height:100px; background-color:#FFFFa1;float:left; text-align:center; line-height:100px;}
+</style>
+</head>
+
+<body>
+<div id="head" align="center">
+<font size="+4"><b>员工信息显示系统</b></font>
+</div>
+<div id="body">
+<div id="bodyh">
+<div id="bodyh_1">
+<div id="bodyh_1_img"><img src="img/11.jpg" width="100" height="100"></img></div>
+<div id="bodyh_2">
+<b style="padding-left:5px; padding-top:5px;">管理员信息<b>
+<form>
+<table>
+<tr>
+<td>姓名：</td>
+<td><input type="text"/></td>
+</tr>
+<tr>
+<td>工号：</td>
+<td><input type="text"/></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+<div id="butt">
+<input type="button" onclick="window.open('filterpage/changemess.jsp')" value="增加员工信息" style="background-color:#FF0000"></input>
+<input type="button" onclick="window.open('')" value="查询员工信息" style="background-color:#FF0000"></input>
+</div>
+</div>
+
+<div id="bodyb">
+<!--
+
+<table align="center">
+<%
+	ArrayList<Car> list = (ArrayList<Car>)request.getAttribute("LIST");
+	for(int i=0;i<list.size();i++){
+		out.print("<tr>");
+		out.print("<td>"+list.get(i).getId()+"</td>");
+		out.print("<td>"+list.get(i).getName()+"</td>");
+		out.print("<td>"+list.get(i).getType()+"</td>");
+		out.print("<td>"+list.get(i).getPrice()+"</td>");
+		out.print("</tr>");
+	}
+	
+%>
+</table>
+-->
+</div>
+</div>
+</body>
+</html>
